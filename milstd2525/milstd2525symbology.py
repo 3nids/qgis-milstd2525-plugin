@@ -117,7 +117,7 @@ def getSymbolLayer(folder, svg, size):
             break
     if filepath is not None:
         symbolLayer = QgsSvgMarkerSymbolLayer(filepath)
-        symbolLayer.setSizeUnit(3)
+        symbolLayer.setSizeUnit(Qgis.RenderUnit.Percentage)
         symbolLayer.setSize(size)
         return symbolLayer
     else:
@@ -131,7 +131,7 @@ def getDefaultSymbol(size):
         symbol.takeSymbolLayer(0)
     symbolLayer = QgsSvgMarkerSymbolLayer(
         os.path.join(os.path.dirname(__file__), 'svg', 'question.svg'))
-    symbolLayer.setSizeUnit(3)
+    symbolLayer.setSizeUnit(Qgis.RenderUnit.Percentage)
     symbolLayer.setSize(size)
     symbol.insertSymbolLayer(0, symbolLayer)
     return symbol
